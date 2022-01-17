@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.2",
     "axios": "^0.24.0",
+    "concurrently": "^7.0.0",
     "debounce-promise": "^3.1.2",
     "fs": "0.0.1-security",
     "os": "^0.1.2",
@@ -23,6 +24,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.3.0",
     "react-scripts": "^5.0.0",
+    "react-spinners": "^0.11.0",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
     "tailwindcss": "^3.0.12",
@@ -32,10 +34,11 @@
   },
   "scripts": {
     "build:styles": "tailwindcss -i src/styles/index.css -o src/styles/tailwind.css",
-    "start": "npm run build:styles && react-scripts start && react-dotenv",
+    "start": "concurrently \"cd ../foodstore-server && npm start\" \"npm run build:styles && react-scripts start && react-dotenv\"",
     "build": "react-scripts build && react-dotenv",
     "test": "react-scripts test && react-dotenv",
-    "eject": "react-scripts eject && react-dotenv"
+    "eject": "react-scripts eject && react-dotenv",
+    "oldstart": "npm run build:styles && react-scripts start && react-dotenv"
   },
   "eslintConfig": {
     "extends": [
