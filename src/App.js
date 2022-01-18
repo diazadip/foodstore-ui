@@ -9,11 +9,13 @@ import { listen } from './app/listener';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import RegisterSuccess from './pages/RegisterSuccess';
+import { getCart } from './api/cart';
 
 function App() {
     // (2) panggil fungsi listen() sekali saja saat komponen selesai render pertama kali
     React.useEffect(() => {
         listen();
+        getCart();
     }, [])
     return (
         <Provider store={store}>
